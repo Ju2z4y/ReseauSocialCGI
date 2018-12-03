@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" href="#">Mon reseau social</a>
+  <a class="navbar-brand" href="/index">Mon reseau social</a>
 
   <!-- Links -->
   <ul class="navbar-nav">
@@ -28,14 +28,15 @@
    <ul class="navbar-nav ml-auto">
     <li class="nav-item">
 		<c:choose>
-		   <c:when test="${empty sessionScope.name}">
+		   <c:when test="${empty sessionScope.prenom} || ${empty sessionScope.nom}">
 		   	<a class="nav-link">Vous n'êtes pas connecté</a>
 		   </c:when>
 		   <c:otherwise>
-		   	<a class="nav-link">Vous êtes connecté en tant que : <c:out value="${ sessionScope.name }" /></a>
+		   	<a class="nav-link">Vous êtes connecté en tant que : 
+		   	<c:out value="${ sessionScope.prenom }" />
+		   	<c:out value="${ sessionScope.nom }" /></a>
 		   </c:otherwise>
 		</c:choose>
-    	
     </li>
   </ul>
 </nav>
