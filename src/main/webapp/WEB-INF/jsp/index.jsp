@@ -26,7 +26,6 @@
 	<div class="jumbotron">
 	  <h1>Accueil de mon reseau social</h1> 
 	  <p>Home page</p> 
-	  <p><c:out value="${sessionScope.name}" /></p>
 	</div>
 </body>
 </html>

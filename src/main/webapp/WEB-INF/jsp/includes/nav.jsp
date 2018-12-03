@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <!-- Brand -->
   <a class="navbar-brand" href="#">Mon reseau social</a>
@@ -22,8 +24,18 @@
         <a class="dropdown-item" href="#">Link 3</a>
       </div>
     </li>
-    <li>
-    
+   </ul>
+   <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+		<c:choose>
+		   <c:when test="${empty sessionScope.name}">
+		   	<a class="nav-link">Vous n'êtes pas connecté</a>
+		   </c:when>
+		   <c:otherwise>
+		   	<a class="nav-link">Vous êtes connecté en tant que : <c:out value="${ sessionScope.name }" /></a>
+		   </c:otherwise>
+		</c:choose>
+    	
     </li>
   </ul>
 </nav>
