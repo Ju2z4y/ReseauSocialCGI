@@ -1,4 +1,4 @@
-package com.reseau.social.cgi.ReseauSocialCGI;
+package com.reseau.social.cgi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
