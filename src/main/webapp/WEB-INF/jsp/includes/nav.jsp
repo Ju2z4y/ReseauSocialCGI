@@ -5,7 +5,7 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">Mon profil</a>
+      <a class="nav-link" href="#">File d'actualité</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Contacts</a>
@@ -21,6 +21,9 @@
         <a class="dropdown-item" href="#">Link 2</a>
         <a class="dropdown-item" href="#">Link 3</a>
       </div>
+    </li>
+    <li>
+    
     </li>
   </ul>
 </nav>

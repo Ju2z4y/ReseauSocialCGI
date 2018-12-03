@@ -25,8 +25,12 @@
 <c:import url="includes/nav.jsp"></c:import>
 	<div class="jumbotron">
 	  <h1>Accueil de mon reseau social</h1> 
-	  <p>Home page</p> 
-	  <p><c:out value="${sessionScope.name}" /></p>
+	  <form name="identification" method="post" action="/login">
+	  	<p>Merci de vous connecter avec le formulaire suivant : </p>
+	  	<label>Identifiant : </label>
+	  	<input type="text" name="identifiant" size="20"></input>
+	  	<input type="Submit" name=submit value="Submit">
+	  </form>
 	</div>
 </body>
 </html>
