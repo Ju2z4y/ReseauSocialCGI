@@ -7,6 +7,10 @@ import com.reseau.social.cgi.model.Topic;
 
 public class DbService {
 	
+	public DbService() {
+		
+	}
+	
 	private int idTopic = 0;
 	
 	public Topic createTopic() {

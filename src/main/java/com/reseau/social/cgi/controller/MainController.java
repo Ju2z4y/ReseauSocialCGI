@@ -19,8 +19,8 @@ import com.reseau.social.cgi.service.DbService;
 @Controller
 public class MainController {
 	
-	@Autowired
-	DbService dbService;
+	
+	private DbService dbService = new DbService();
 
  
     @RequestMapping(value = { "/index" }, method = RequestMethod.GET)
@@ -38,7 +38,7 @@ public class MainController {
     		return new ModelAndView("identification");
     	} else {
     		Topic topic = dbService.createTopic();
-    		return new ModelAndView("fildactu/actu-main","topic", topic);
+    		return new ModelAndView("/fildactu/actu-main","topic", topic);
     	}
       }    
     

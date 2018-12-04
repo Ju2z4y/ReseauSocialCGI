@@ -5,7 +5,6 @@ import java.util.List;
 
 import lombok.Data;
 
-@Data
 public class Topic {
 	
 	private Integer id;
@@ -23,4 +22,56 @@ public class Topic {
 		this.date = new Date();
 	}
 
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
+	public String getAuteur() {
+		return auteur;
+	}
+
+
+	public void setAuteur(String auteur) {
+		this.auteur = auteur;
+	}
+
+
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
+	public String getTitre() {
+		return titre;
+	}
+
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+
+	public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	
+	
 }

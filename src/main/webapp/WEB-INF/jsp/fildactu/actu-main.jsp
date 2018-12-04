@@ -27,7 +27,7 @@
 	  <h1>Fil d'actualité</h1>  
 	</div>
 	<div class="container mt-3">
-	  <h2>Titre de la discussion</h2>
+	  <h2><c:out value="${topic.titre }"></c:out></h2>
 	  <p>Quel est le but de cette discussion : </p><br>
 	  <div class="media border p-3">
 	    <img src="<c:url value="/resources/images/photo.PNG"/>" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
