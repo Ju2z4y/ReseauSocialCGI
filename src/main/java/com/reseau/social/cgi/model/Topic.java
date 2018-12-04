@@ -1,6 +1,7 @@
 package com.reseau.social.cgi.model;
 
 import java.util.Date;
+import java.util.List;
 
 import lombok.Data;
 
@@ -12,8 +13,9 @@ public class Topic {
 	private String message;
 	private String titre;
 	private Date date;
+	private List<Message> listMessage;
 	
-	public Topic(Integer id, String auteur, String message, String titre, Date date) {
+	public Topic(Integer id, String auteur, String message, String titre) {
 		this.id = id;
 		this.auteur = auteur;
 		this.message = message;
