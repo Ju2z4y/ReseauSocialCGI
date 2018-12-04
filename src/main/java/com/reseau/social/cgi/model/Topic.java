@@ -9,15 +9,14 @@ public class Topic {
 	
 	private Integer id;
 	private String auteur;
-	private String message;
+	private List<Message> messages;
 	private String titre;
 	private Date date;
 
 	
-	public Topic(Integer id, String auteur, String message, String titre) {
+	public Topic(Integer id, String auteur, String titre) {
 		this.id = id;
 		this.auteur = auteur;
-		this.message = message;
 		this.titre = titre;
 		this.date = new Date();
 	}
@@ -43,16 +42,6 @@ public class Topic {
 	}
 
 
-	public String getMessage() {
-		return message;
-	}
-
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-
 	public String getTitre() {
 		return titre;
 	}
@@ -72,6 +61,19 @@ public class Topic {
 		this.date = date;
 	}
 
+
+	public List<Message> getMessages() {
+		return messages;
+	}
+
+
+	public void setMessages(List<Message> messages) {
+		this.messages = messages;
+	}
 	
+	public void addMessage(Message message) {
+		messages.add(message);
+	}
+
 	
 }
