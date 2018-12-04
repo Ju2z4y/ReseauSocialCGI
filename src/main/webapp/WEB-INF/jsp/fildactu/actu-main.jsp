@@ -57,6 +57,12 @@
 	    </div>
 	  </div>
 	  </c:forEach>
+	  	  <form name="ajoutMessage" method="post" action="/ajoutMessage">
+	      	<label>Ajouter un message : </label>
+	      	<input type="text" name="newMessage"></input>
+	      	<input type="hidden" name="idTopic" value="<c:out value="${ topic.id }"/>">
+	      </form>	
+	  	   
 	</div>
 	</c:forEach>
 	
