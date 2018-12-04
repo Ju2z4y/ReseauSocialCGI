@@ -1,15 +1,15 @@
 package com.reseau.social.cgi.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
 
 public class Topic {
 	
 	private Integer id;
 	private String auteur;
-	private List<Message> messages;
+	private ArrayList<Message> messages = new ArrayList<Message>();
 	private String titre;
 	private Date date;
 
@@ -62,12 +62,12 @@ public class Topic {
 	}
 
 
-	public List<Message> getMessages() {
+	public ArrayList<Message> getMessages() {
 		return messages;
 	}
 
 
-	public void setMessages(List<Message> messages) {
+	public void setMessages(ArrayList<Message> messages) {
 		this.messages = messages;
 	}
 	

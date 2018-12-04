@@ -1,18 +1,16 @@
 package com.reseau.social.cgi.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
-public class Message {
+public class Commentaire {
 	
 	private Integer id;
 	private String auteur;
 	private String message;
 	private Date date;
-	private ArrayList<Commentaire> commentaires = new ArrayList<Commentaire>();
 
 	
-	public Message(Integer id, String auteur, String message) {
+	public Commentaire(Integer id, String auteur, String message) {
 		this.id = id;
 		this.auteur = auteur;
 		this.message = message;
@@ -59,9 +57,6 @@ public class Message {
 		this.date = date;
 	}
 	
-	public void addCommentaire(Commentaire commentaire) {
-		this.commentaires.add(commentaire);
-	}
 	
 
 }
