@@ -24,6 +24,15 @@ public class MainController {
     	}
       }
     
+    @RequestMapping(value = { "/fildactu" }, method = RequestMethod.GET)
+    public String getActu(HttpServletRequest request){
+    	if ((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) {
+    		return "identification";
+    	} else {
+    		return "fildactu/actu-main";
+    	}
+      }    
+    
     @RequestMapping(value = { "/index" }, method = RequestMethod.POST)
     public String recoverPass(@RequestParam("prenom") String prenom,
     		@RequestParam("nom") String nom, HttpServletRequest request){

@@ -1,6 +1,7 @@
 package com.reseau.social.cgi.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

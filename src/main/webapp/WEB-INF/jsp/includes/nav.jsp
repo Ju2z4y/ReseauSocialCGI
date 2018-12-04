@@ -7,7 +7,7 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">File d'actualité</a>
+      <a class="nav-link" href="/fildactu">File d'actualité</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="#">Contacts</a>
