@@ -8,7 +8,7 @@ public class Commentaire {
 	private String auteur;
 	private String message;
 	private Date date;
-
+	
 	
 	public Commentaire(Integer id, String auteur, String message) {
 		this.id = id;
@@ -16,6 +16,12 @@ public class Commentaire {
 		this.message = message;
 		this.date = new Date();
 	}
+	
+	public Commentaire(String auteur, String message) {
+		this.auteur = auteur;
+		this.message = message;
+		this.date = new Date();
+	}	
 
 
 	public Integer getId() {
