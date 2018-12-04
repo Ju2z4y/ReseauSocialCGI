@@ -1,13 +1,13 @@
-package com.reseau.social.cgi.db;
+package com.reseau.social.cgi.service;
 
 import com.reseau.social.cgi.model.Topic;
 
-public class DbDao {
+public class DbService {
 	
-	public Topic getTopicById(int id) {
+	public Topic createTopic() {
 		Topic topic = new Topic();
-		
 		return topic;
+		
 	}
 
 }

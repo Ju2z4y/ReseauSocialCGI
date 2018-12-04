@@ -10,6 +10,14 @@ public class Topic {
 	private String titre;
 	private Date date;
 	
+	public Topic(int id, String auteur, String message, String titre, Date date) {
+		this.id = id;
+		this.auteur = auteur;
+		this.message = message;
+		this.titre = titre;
+		this.date = new Date();
+	}
+	
 	
 	public int getId() {
 		return id;
