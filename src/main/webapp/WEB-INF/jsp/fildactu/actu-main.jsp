@@ -27,18 +27,16 @@
 	  <h1>Fil d'actualité</h1>  
 	</div>
 	<div class="container mt-3">
-	  <h2><c:out value="${topic.titre }"></c:out></h2>
-	  <p>Quel est le but de cette discussion : </p><br>
+	  <h2><c:out value="${topic.titre}"></c:out></h2>
 	  <div class="media border p-3">
 	    <img src="<c:url value="/resources/images/photo.PNG"/>" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
 	    <div class="media-body">
-	      <h4>Auteur du message <small><i>Date de la publication du message</i></small></h4>
-	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-	      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	      <h4><c:out value="${topic.auteur}"></c:out><small><i><c:out value="${topic.date}"></c:out></i></small></h4>
+	      <p><c:out value="${topic.message}"></c:out></p>
 	      <div class="media p-3">
 	        <img src="<c:url value="/resources/images/photo.PNG"/>" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
 	        <div class="media-body">
-	          <h4>Auteur du message <small><i>Date de la publication du message</i></small></h4>
+	          <h4>Auteur du commentaire <small><i>Date de la publication du comentaire</i></small></h4>
 	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 	        </div>
