@@ -7,13 +7,13 @@ import com.reseau.social.cgi.model.Topic;
 
 public class DbService {
 	
-	public List<Topic> createTopic() {
-		List<Topic> result = new ArrayList();
-		Topic topic = new Topic(1, "Thomas", "Test Message", "Test Titre");
+	private int idTopic = 0;
+	
+	public Topic createTopic() {
+		idTopic++;
+		Topic topic = new Topic(idTopic, "Thomas", "Test Message", "Test Titre");
+		return topic;
 		
-		
-		result.add(topic);
-		return result;
 		
 	}
 

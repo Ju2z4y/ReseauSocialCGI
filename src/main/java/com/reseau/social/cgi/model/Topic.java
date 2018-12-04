@@ -13,7 +13,7 @@ public class Topic {
 	private String message;
 	private String titre;
 	private Date date;
-	private List<Message> listMessage;
+
 	
 	public Topic(Integer id, String auteur, String message, String titre) {
 		this.id = id;
