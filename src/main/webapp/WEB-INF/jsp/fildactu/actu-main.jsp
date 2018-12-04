@@ -35,14 +35,15 @@
 	      <h4><c:out value="${message.auteur}"></c:out><small><i><c:out value="${message.date}"></c:out></i></small></h4>
 	      <p><c:out value="${message.message}"></c:out></p>
 	      
+	      <c:forEach items="${message.commentaires}" var="commentaire">
 	      <div class="media p-3">
 	        <img src="<c:url value="/resources/images/photo.PNG"/>" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
 	        <div class="media-body">
-	          <h4>Auteur du commentaire <small><i>Date de la publication du comentaire</i></small></h4>
-	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	          <h4><c:out value="${commentaire.auteur}"></c:out> <small><i><c:out value="${commentaire.date}"></c:out></i></small></h4>
+	          <p><c:out value="${commentaire.message}"></c:out></p>
 	        </div>
 	      </div>  
+	      </c:forEach>
 	      
 	    </div>
 	  </div>

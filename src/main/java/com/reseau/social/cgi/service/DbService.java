@@ -17,12 +17,16 @@ public class DbService {
 		idTopic++;
 		Topic topic = new Topic(idTopic, "Thomas", "Test Titre");
 		topic.addMessage(createMessage());
+		topic.addMessage(createMessage());
+		topic.addMessage(createMessage());
+		topic.addMessage(createMessage());
 		return topic;
 	}
 	
 	public Message createMessage() {
 		idMessage++;
 		Message message = new Message(idMessage, "Auteur message", "message");
+		message.addCommentaire(createCommentaire());
 		message.addCommentaire(createCommentaire());
 		return message;
 	}

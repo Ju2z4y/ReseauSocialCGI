@@ -62,6 +62,16 @@ public class Message {
 	public void addCommentaire(Commentaire commentaire) {
 		this.commentaires.add(commentaire);
 	}
+
+
+	public ArrayList<Commentaire> getCommentaires() {
+		return commentaires;
+	}
+
+
+	public void setCommentaires(ArrayList<Commentaire> commentaires) {
+		this.commentaires = commentaires;
+	}
 	
 
 }
