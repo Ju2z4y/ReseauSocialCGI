@@ -25,14 +25,7 @@
 <c:import url="includes/nav.jsp"></c:import>
 	<div class="jumbotron">
 	  <h1>Accueil de mon reseau social</h1> 
-	  <form name="identification" method="post" action="/index">
-	  	<p>Merci de vous connecter avec le formulaire suivant : </p>
-	  	<label>Nom : </label>
-	  	<input type="text" name="nom" ></input>
-	  	<label>Prénom : </label>
-	  	<input type="text" name="prenom" ></input>
-	  	<input type="Submit" name=submit value="Submit">
-	  </form>
+	  <p>Home page</p> 
 	</div>
 </body>
 </html>

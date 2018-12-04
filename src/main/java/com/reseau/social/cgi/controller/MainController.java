@@ -17,20 +17,21 @@ public class MainController {
  
     @RequestMapping(value = { "/index" }, method = RequestMethod.GET)
     public String testMestod(HttpServletRequest request){
-    	if (request.getSession().getAttribute("name") == null) {
+    	if ((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) {
     		return "identification";
     	} else {
     		return "index";
     	}
       }
     
-    @RequestMapping(value = { "/login" }, method = RequestMethod.POST)
-    public String recoverPass(@RequestParam("identifiant") String username, HttpServletRequest request){
-    	System.out.println(username);
-    	if (username == null) {
+    @RequestMapping(value = { "/index" }, method = RequestMethod.POST)
+    public String recoverPass(@RequestParam("prenom") String prenom,
+    		@RequestParam("nom") String nom, HttpServletRequest request){
+    	if ((prenom == null)||(nom == null)) {
     		return "identification";
     	} else {
-    		request.getSession().setAttribute("name", username);
+    		request.getSession().setAttribute("prenom", prenom);
+    		request.getSession().setAttribute("nom", nom);
     		return "index";
     	}
 
