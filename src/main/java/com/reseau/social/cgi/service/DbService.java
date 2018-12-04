@@ -14,7 +14,7 @@ public class DbService {
 	public Topic createTopic() {
 		idTopic++;
 		Topic topic = new Topic(idTopic, "Thomas", "Test Titre");
-		topic.addMessage(this.createMessage());
+		topic.addMessage(createMessage());
 		return topic;
 	}
 	
