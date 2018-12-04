@@ -28,11 +28,13 @@
 	</div>
 	<div class="container mt-3">
 	  <h2><c:out value="${topic.titre}"></c:out></h2>
+	 <c:forEach items="${topic.messages}" var="message">
 	  <div class="media border p-3">
 	    <img src="<c:url value="/resources/images/photo.PNG"/>" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
 	    <div class="media-body">
-	      <h4><c:out value="${topic.auteur}"></c:out><small><i><c:out value="${topic.date}"></c:out></i></small></h4>
-	      <p><c:out value="${topic.message}"></c:out></p>
+	      <h4><c:out value="${message.auteur}"></c:out><small><i><c:out value="${message.date}"></c:out></i></small></h4>
+	      <p><c:out value="${message.message}"></c:out></p>
+	      
 	      <div class="media p-3">
 	        <img src="<c:url value="/resources/images/photo.PNG"/>" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
 	        <div class="media-body">
@@ -41,9 +43,10 @@
 	          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 	        </div>
 	      </div>  
+	      
 	    </div>
 	  </div>
-	  
+	  </c:forEach>
 	</div>
 </body>
 </html>

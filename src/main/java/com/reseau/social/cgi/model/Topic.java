@@ -72,7 +72,7 @@ public class Topic {
 	}
 	
 	public void addMessage(Message message) {
-		messages.add(message);
+		this.messages.add(message);
 	}
 
 	
