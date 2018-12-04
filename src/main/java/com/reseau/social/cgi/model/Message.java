@@ -18,6 +18,12 @@ public class Message {
 		this.message = message;
 		this.date = new Date();
 	}
+	
+	public Message(String auteur, String message) {
+		this.auteur = auteur;
+		this.message = message;
+		this.date = new Date();
+	}	
 
 
 	public Integer getId() {

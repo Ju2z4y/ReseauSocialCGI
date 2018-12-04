@@ -76,10 +76,30 @@ public class MainController {
     			if (topic.getId() == idTopic) {
     				for (Message message : topic.getMessages()) {
     					if (message.getId() == idMessage) {
-    						String auteur = (String)request.getSession().getAttribute("prenom") + (String)request.getSession().getAttribute("nom");
+    						String auteur = (String)request.getSession().getAttribute("prenom") +" "+ (String)request.getSession().getAttribute("nom");
     						message.addCommentaire(new Commentaire(auteur, newCommentaire));
     					}
     				}
+    			}
+    		}
+    		request.getSession().setAttribute("topics", topics);
+    		return new ModelAndView("/fildactu/actu-main","topics", topics);
+    	}
+
+      }  
+    
+    @RequestMapping(value = { "/ajoutMessage" }, method = RequestMethod.POST)
+    public ModelAndView ajoutMessage(@RequestParam("idTopic") int idTopic,
+    		 @RequestParam("newMessage") String newMessage, HttpServletRequest request){
+    	if ((newMessage == null)||(newMessage == "")) {
+    		return new ModelAndView("index");
+    	} else {
+    		ArrayList<Topic> topics = (ArrayList<Topic>)request.getSession().getAttribute("topics");
+    		for (Topic topic : topics) {
+    			if (topic.getId() == idTopic) {
+    				int newId = topic.getMessages().size() + 1;
+    				String auteur = (String)request.getSession().getAttribute("prenom") +" "+ (String)request.getSession().getAttribute("nom");
+    				topic.addMessage(new Message(newId, auteur, newMessage));
     			}
     		}
     		request.getSession().setAttribute("topics", topics);
