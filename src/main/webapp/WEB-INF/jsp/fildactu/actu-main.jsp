@@ -26,6 +26,8 @@
 	<div class="jumbotron">
 	  <h1>Fil d'actualité</h1>  
 	</div>
+	
+	<c:forEach items="${topics}" var="topic">
 	<div class="container mt-3">
 	  <h2><c:out value="${topic.titre}"></c:out></h2>
 	 <c:forEach items="${topic.messages}" var="message">
@@ -44,10 +46,19 @@
 	        </div>
 	      </div>  
 	      </c:forEach>
+	      <form name="ajoutCommentaire" method="post" action="/ajoutCommentaire">
+	      	<label>Ajouter un commentaire : </label>
+	      	<input type="text" name="newCommentaire"></input>
+	      	<input type="hidden" name="idTopic" value="<c:out value="${ topic.id }"/>">
+	      	<input type="hidden" name="idMessage" value="<c:out value="${ message.id }"/>">
+	      	
+	      </form>
 	      
 	    </div>
 	  </div>
 	  </c:forEach>
 	</div>
+	</c:forEach>
+	
 </body>
 </html>
