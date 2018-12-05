@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -101,9 +102,13 @@
 	<ul class="navbar-nav ml-auto">
 		<li class="nav-item"><c:choose>
 				<c:when
-					test="${empty sessionScope.prenom} || ${empty sessionScope.nom}">
+					test="((${empty sessionScope.prenom}) || (${empty sessionScope.nom}))">
 					<a class="nav-link">Vous n'êtes pas connecté</a>
 				</c:when>
+				<c:when
+					test="${sessionScope.prenom == 'coucou'} || ${sessionScope.nom == 'coucou'}">
+					<a class="nav-link">Vous n'êtes pas connecté</a>
+				</c:when>				
 				<c:otherwise>
 					<a class="nav-link">Vous êtes connecté en tant que : <c:out
 							value="${ sessionScope.prenom }" /> <c:out

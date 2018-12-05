@@ -27,7 +27,10 @@ public class MainController {
  
     @RequestMapping(value = { "/index" }, method = RequestMethod.GET)
     public String testMestod(HttpServletRequest request){
-    	if ((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) {
+    	if (((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) || 
+    			((request.getSession().getAttribute("prenom") == "null") || (request.getSession().getAttribute("nom") == "null"))) {
+    		setNullSession(request);
+    		System.out.println(request.getSession().getAttribute("prenom"));
     		return "identification";
     	} else {
     		return "index";
@@ -36,13 +39,13 @@ public class MainController {
     
     @RequestMapping(value = { "/fildactu" }, method = RequestMethod.GET)
     public ModelAndView getActu(HttpServletRequest request){
-    	if ((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) {
+    	if (((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) || 
+    			((request.getSession().getAttribute("prenom") == "null") || (request.getSession().getAttribute("nom") == "null"))) {
+    		setNullSession(request);
     		return new ModelAndView("identification");
     	} else {
     		if (request.getSession().getAttribute("topics") == null) {
-        		ArrayList<Topic> topics = new ArrayList<Topic>();
-        		topics.add(dbService.createTopic());
-        		topics.add(dbService.createTopic());
+    			ArrayList<Topic> topics = initialisationFilActu();
         		request.getSession().setAttribute("topics", topics);
         		return new ModelAndView("/fildactu/actu-main","topics", topics);
     		} else {
@@ -107,4 +110,34 @@ public class MainController {
     	}
 
       }  
+    
+    private ArrayList<Topic> initialisationFilActu(){
+		ArrayList<Topic> topics = new ArrayList<Topic>();
+		
+		Topic topic1 = dbService.createTopic("Walid", "Ré-intégration U'Dev");
+		Message message11 = dbService.createMessage("Walid", "Je vais revenir tous les jours jusqu'à ce que je sois ré-embauché!");
+		Message message12 = dbService.createMessage("Mederick", "Tu devrais prendre rendez vous sur malaise TV");
+		Commentaire commentaire111 = dbService.createCommentaire("Walid", "Je passe à l'IPI ce soir");
+		message12.addCommentaire(commentaire111);
+		topic1.addMessage(message11);
+		topic1.addMessage(message12);
+		
+		Topic topic2 = dbService.createTopic("Thomas", "Crash Destiny 2");
+		Message message21 = dbService.createMessage("Thomas", "J'arrête pas de crash sur D2, je comprends pas pq, je craque !!!");
+		Message message22 = dbService.createMessage("Max", "Je pense que c'est pq ton PC est trop puissant!");
+		Commentaire commentaire211 = dbService.createCommentaire("Julien", "Arrete de cracher sal lama");
+		message21.addCommentaire(commentaire211);
+		topic2.addMessage(message21);
+		topic2.addMessage(message22);
+		
+		topics.add(topic1);
+		topics.add(topic2);
+		return topics;
+		
+    }
+    
+    private void setNullSession(HttpServletRequest request) {
+    	request.getSession().setAttribute("prenom", "coucou");
+    	request.getSession().setAttribute("nom", "coucou");
+    }
 }

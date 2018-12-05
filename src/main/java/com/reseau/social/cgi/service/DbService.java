@@ -13,27 +13,21 @@ public class DbService {
 	private int idMessage = 0;
 	private int idCommentaire = 0;
 	
-	public Topic createTopic() {
+	public Topic createTopic(String auteur, String titre) {
 		idTopic++;
-		Topic topic = new Topic(idTopic, "Thomas", "Test Titre");
-		topic.addMessage(createMessage());
-		topic.addMessage(createMessage());
-		topic.addMessage(createMessage());
-		topic.addMessage(createMessage());
+		Topic topic = new Topic(idTopic, auteur, titre);
 		return topic;
 	}
 	
-	public Message createMessage() {
+	public Message createMessage(String auteur, String texte) {
 		idMessage++;
-		Message message = new Message(idMessage, "Auteur message", "message");
-		message.addCommentaire(createCommentaire());
-		message.addCommentaire(createCommentaire());
+		Message message = new Message(idMessage, auteur, texte);
 		return message;
 	}
 	
-	public Commentaire createCommentaire() {
+	public Commentaire createCommentaire(String auteur, String texte) {
 		idCommentaire++;
-		Commentaire commentaire = new Commentaire(idCommentaire, "Auteur commentaire", "commentaire");
+		Commentaire commentaire = new Commentaire(idCommentaire, auteur, texte);
 		return commentaire;
 	}
 
