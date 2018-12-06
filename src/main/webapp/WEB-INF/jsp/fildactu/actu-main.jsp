@@ -27,6 +27,7 @@
 <c:import url="../includes/nav.jsp"></c:import>
 	<div class="jumbotron">
 	  <h1>Fil d'actualité</h1>  
+	  <button type="button" class="btn btn-outline-secondary" href="${pageContext.request.requestURI}#name">Ajouter un topic</button>
 	</div>
 	
 	<c:forEach items="${topics}" var="topic">
@@ -38,7 +39,6 @@
 	    <div class="media-body">
 	      <h4><c:out value="${message.message}"></c:out></h4>
 	      <p><small><c:out value="${message.auteur}"></c:out> - <i><fmt:formatDate value="${message.date}" pattern="dd-MM-yyyy HH:mm" /></i></small></p>
-	      
 	      <c:forEach items="${message.commentaires}" var="commentaire">
 	      <div class="media commentaire">
 	        <img src="<c:url value="/resources/images/photo.PNG"/>" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
@@ -53,9 +53,7 @@
 	      	<input type="text" name="newCommentaire" class="form-control form-control-sm">
 	      	<input type="hidden" name="idTopic" value="<c:out value="${ topic.id }"/>">
 	      	<input type="hidden" name="idMessage" value="<c:out value="${ message.id }"/>">
-	      	
 	      </form>
-	      
 	    </div>
 	  </div>
 	  </c:forEach>
@@ -66,9 +64,20 @@
 	      	<input type="hidden" name="idTopic" value="<c:out value="${ topic.id }"/>">
 	      </form>	
 	  </div>
-	  	   
 	</div>
 	</c:forEach>
+	
+	<form name="ajoutTopic" method="post" action="/ajoutTopic">
+	<div id="1" class="container mt-3">
+	<h2>Ajouter un Topic</h2>
+	  <input type="text" name="newTopic" class="form-control form-control-sm" placeholder="Titre du topic">
+	  <div class="media border p-3">
+	    <img src="<c:url value="/resources/images/photo.PNG"/>" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+	    <input type="text" name="newTopicMessage" class="form-control form-control-sm" placeholder="Message du topic">
+	    <input type="Submit" name=submit value="Ajouter">
+	  </div>
+	</div>
+	</form>
 	
 </body>
 </html>

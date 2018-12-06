@@ -27,10 +27,8 @@ public class MainController {
  
     @RequestMapping(value = { "/index" }, method = RequestMethod.GET)
     public String testMestod(HttpServletRequest request){
-    	if (((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) || 
-    			((request.getSession().getAttribute("prenom") == "null") || (request.getSession().getAttribute("nom") == "null"))) {
-    		setNullSession(request);
-    		System.out.println(request.getSession().getAttribute("prenom"));
+    	if ((request.getSession().getAttribute("userName") == null) || (request.getSession().getAttribute("userName") == "empty")) {
+    		System.out.println(request.getSession().getAttribute("userName"));
     		return "identification";
     	} else {
     		return "index";
@@ -39,9 +37,7 @@ public class MainController {
     
     @RequestMapping(value = { "/fildactu" }, method = RequestMethod.GET)
     public ModelAndView getActu(HttpServletRequest request){
-    	if (((request.getSession().getAttribute("prenom") == null) || (request.getSession().getAttribute("nom") == null)) || 
-    			((request.getSession().getAttribute("prenom") == "null") || (request.getSession().getAttribute("nom") == "null"))) {
-    		setNullSession(request);
+    	if ((request.getSession().getAttribute("userName") == null) || (request.getSession().getAttribute("userName") == "empty")) {
     		return new ModelAndView("identification");
     	} else {
     		if (request.getSession().getAttribute("topics") == null) {
@@ -61,8 +57,7 @@ public class MainController {
     	if ((prenom == null)||(nom == null)) {
     		return new ModelAndView("inscription");
     	} else {
-    		request.getSession().setAttribute("prenom", prenom);
-    		request.getSession().setAttribute("nom", nom);
+    		setUserName(prenom, nom, request);
     		return new ModelAndView("index");
     	}
 
@@ -79,7 +74,7 @@ public class MainController {
     			if (topic.getId() == idTopic) {
     				for (Message message : topic.getMessages()) {
     					if (message.getId() == idMessage) {
-    						String auteur = (String)request.getSession().getAttribute("prenom") +" "+ (String)request.getSession().getAttribute("nom");
+    						String auteur = (String)request.getSession().getAttribute("userName");
     						message.addCommentaire(new Commentaire(auteur, newCommentaire));
     					}
     				}
@@ -101,14 +96,31 @@ public class MainController {
     		for (Topic topic : topics) {
     			if (topic.getId() == idTopic) {
     				int newId = topic.getMessages().size() + 1;
-    				String auteur = (String)request.getSession().getAttribute("prenom") +" "+ (String)request.getSession().getAttribute("nom");
+    				String auteur = (String)request.getSession().getAttribute("userName");
     				topic.addMessage(new Message(newId, auteur, newMessage));
     			}
     		}
     		request.getSession().setAttribute("topics", topics);
     		return new ModelAndView("/fildactu/actu-main","topics", topics);
     	}
-
+      }   
+    
+    @RequestMapping(value = { "/ajoutTopic" }, method = RequestMethod.POST)
+    public ModelAndView ajoutTopic(@RequestParam("newTopic") String msgTopic,
+    		 @RequestParam("newTopicMessage") String newMessage, HttpServletRequest request){
+    	if (((newMessage == null)||(newMessage == "")) || ((msgTopic == null)||(msgTopic == ""))) {
+    		return new ModelAndView("/fildactu/actu-main");
+    	} else {
+    		ArrayList<Topic> topics = (ArrayList<Topic>)request.getSession().getAttribute("topics");
+    		String auteur = (String)request.getSession().getAttribute("userName");
+    		
+    		Topic topic = new Topic(topics.size(), auteur, msgTopic);
+    		Message message = new Message(1, auteur, newMessage);
+    		topic.addMessage(message);
+    		topics.add(topic);
+    		request.getSession().setAttribute("topics", topics);
+    		return new ModelAndView("/fildactu/actu-main","topics", topics);
+    	}
       }  
     
     private ArrayList<Topic> initialisationFilActu(){
@@ -136,8 +148,18 @@ public class MainController {
 		
     }
     
+    @RequestMapping(value = { "/deconnexion" }, method = RequestMethod.GET)
+    public String deconnexion(HttpServletRequest request){
+    	request.getSession().setAttribute("userName", "empty");
+    	return "identification";
+      }    
+    
     private void setNullSession(HttpServletRequest request) {
     	request.getSession().setAttribute("prenom", "coucou");
     	request.getSession().setAttribute("nom", "coucou");
+    }
+    
+    private void setUserName(String prenom, String nom, HttpServletRequest request) {
+    	request.getSession().setAttribute("userName", prenom + " " + nom);
     }
 }

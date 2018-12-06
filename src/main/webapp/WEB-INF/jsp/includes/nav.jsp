@@ -102,17 +102,13 @@
 	<ul class="navbar-nav ml-auto">
 		<li class="nav-item"><c:choose>
 				<c:when
-					test="((${empty sessionScope.prenom}) || (${empty sessionScope.nom}))">
+					test="${empty sessionScope.userName || sessionScope.userName eq 'empty'}">
 					<a class="nav-link">Vous n'êtes pas connecté</a>
-				</c:when>
-				<c:when
-					test="${sessionScope.prenom == 'coucou'} || ${sessionScope.nom == 'coucou'}">
-					<a class="nav-link">Vous n'êtes pas connecté</a>
-				</c:when>				
+				</c:when>							
 				<c:otherwise>
-					<a class="nav-link">Vous êtes connecté en tant que : <c:out
-							value="${ sessionScope.prenom }" /> <c:out
-							value="${ sessionScope.nom }" /></a>
+					<span class="nav-link">Vous êtes connecté en tant que : <c:out
+							value="${ sessionScope.userName }" />
+					<a href="/deconnexion"> - Déconnexion</a></span>
 				</c:otherwise>
 			</c:choose></li>
 	</ul>

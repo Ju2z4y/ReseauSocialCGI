@@ -20,6 +20,7 @@ public class Topic {
 		this.titre = titre;
 		this.date = new Date();
 	}
+	
 
 
 	public Integer getId() {

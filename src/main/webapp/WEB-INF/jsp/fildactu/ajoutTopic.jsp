@@ -24,14 +24,15 @@
 <body>
 <c:import url="includes/nav.jsp"></c:import>
 	<div class="jumbotron">
-	  <h1>Accueil de mon reseau social</h1> 
-	  <p>Home page</p> 
-	</div>
-	<div>
-	<c:forEach items="${sessionScope}" var="attr">
-    ${attr.key}=${attr.value}<br>
-</c:forEach>
-	
+	  <h1>Ajout d'un topic</h1> 
+	  <form name="identification" method="post" action="/index">
+	  	<p>Merci de vous connecter avec le formulaire suivant : </p>
+	  	<label>Prénom : </label>
+	  	<input type="text" name="prenom" ></input>	  	
+	  	<label>Nom : </label>
+	  	<input type="text" name="nom" ></input>
+	  	<input type="Submit" name=submit value="Submit">
+	  </form>
 	</div>
 </body>
 </html>
