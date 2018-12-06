@@ -27,7 +27,7 @@
 <c:import url="../includes/nav.jsp"></c:import>
 	<div class="jumbotron">
 	  <h1>Fil d'actualité</h1>  
-	  <button type="button" class="btn btn-outline-secondary"><a href="#1">Ajouter un topic</a></button>
+	  <a class="btn btn-outline-secondary" style="color:black;" href="#1">Ajouter un topic</a>
 	</div>
 	
 	<c:forEach items="${topics}" var="topic">
