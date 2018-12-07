@@ -27,8 +27,8 @@
 
 <script>
 	$(function() {
-		var availableTags = [ "Le", "Coureur", "Maxime", "Thomas", "Julien",
-				"Cours", "Bonjour", "Je", "Suis", "Etre", "Avoir", "J'ai",
+		var availableTags = [ "Je", "Coureur", "Maxime", "Thomas", "Julien",
+				"Cours", "J'ai", "Bonjour", "Le", "Suis", "Etre", "Avoir", 
 				"Toujours", "Eu", "Des", "Lisp", "Perl", "PHP", "Python",
 				"Ruby", "Scala", "Scheme" ];
 		function split(val) {
