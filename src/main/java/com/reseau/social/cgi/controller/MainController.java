@@ -126,18 +126,18 @@ public class MainController {
     private ArrayList<Topic> initialisationFilActu(){
 		ArrayList<Topic> topics = new ArrayList<Topic>();
 		
-		Topic topic1 = dbService.createTopic("Walid", "Ré-intégration U'Dev");
-		Message message11 = dbService.createMessage("Walid", "Je vais revenir tous les jours jusqu'à ce que je sois ré-embauché!");
-		Message message12 = dbService.createMessage("Mederick", "Tu devrais prendre rendez vous sur malaise TV");
-		Commentaire commentaire111 = dbService.createCommentaire("Walid", "Je passe à l'IPI ce soir");
+		Topic topic1 = dbService.createTopic("Maxime", "Sport - Inscription");
+		Message message11 = dbService.createMessage("Maxime", "Je vous propose de vous inscrire au même club de sport pour se motiver mutuellement ! De plus je vous rappel que l'on a une subvention du CE ! ");
+		Message message12 = dbService.createMessage("Julien", "Super ! Je pense m'y inscrier également alors");
+		Commentaire commentaire111 = dbService.createCommentaire("Thomas", "Tu y va quand ? je le faire ne même temps que toi.");
 		message12.addCommentaire(commentaire111);
 		topic1.addMessage(message11);
 		topic1.addMessage(message12);
 		
 		Topic topic2 = dbService.createTopic("Thomas", "Crash Destiny 2");
-		Message message21 = dbService.createMessage("Thomas", "J'arrête pas de crash sur D2, je comprends pas pq, je craque !!!");
-		Message message22 = dbService.createMessage("Max", "Je pense que c'est pq ton PC est trop puissant!");
-		Commentaire commentaire211 = dbService.createCommentaire("Julien", "Arrete de cracher sal lama");
+		Message message21 = dbService.createMessage("Thomas", "J'arrête pas de crash sur D2, je comprends pas, pourriez vous m'aider?");
+		Message message22 = dbService.createMessage("Maxime", "Je pense que c'est pq ton PC est OverClocké");
+		Commentaire commentaire211 = dbService.createCommentaire("Julien", "Le mieux est l'ennemi du bien!");
 		message21.addCommentaire(commentaire211);
 		topic2.addMessage(message21);
 		topic2.addMessage(message22);
