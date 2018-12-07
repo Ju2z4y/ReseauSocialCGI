@@ -103,12 +103,12 @@
 		<li class="nav-item"><c:choose>
 				<c:when
 					test="${empty sessionScope.userName || sessionScope.userName eq 'empty'}">
-					<a class="nav-link">Vous n'êtes pas connecté</a>
+					<a  style="color:rgba(255,255,255,.5);">Vous n'êtes pas connecté</a>
 				</c:when>							
 				<c:otherwise>
-					<span class="nav-link">Vous êtes connecté en tant que : <c:out
-							value="${ sessionScope.userName }" />
-					<a href="/deconnexion"> - Déconnexion</a></span>
+					<span style="color:rgba(255,255,255,.5);" class="nav-item">Vous êtes connecté en tant que : <c:out
+							value="${ sessionScope.userName }" /> - 
+					<a class="nav-link" href="/deconnexion" style="display:inline;"><i>Déconnexion</i></a></span>
 				</c:otherwise>
 			</c:choose></li>
 	</ul>
