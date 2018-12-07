@@ -106,8 +106,8 @@
 					<a  style="color:rgba(255,255,255,.5);">Vous n'êtes pas connecté</a>
 				</c:when>							
 				<c:otherwise>
-					<span style="color:rgba(255,255,255,.5);" class="nav-item">Vous êtes connecté en tant que : <c:out
-							value="${ sessionScope.userName }" /> - 
+					<span style="color:rgba(255,255,255,.5);" class="nav-item">Vous êtes connecté en tant que : <strong><c:out
+							value="${ sessionScope.userName }" /></strong> - 
 					<a class="nav-link" href="/deconnexion" style="display:inline;"><i>Déconnexion</i></a></span>
 				</c:otherwise>
 			</c:choose></li>

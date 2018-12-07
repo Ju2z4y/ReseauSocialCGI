@@ -128,8 +128,8 @@ public class MainController {
 		
 		Topic topic1 = dbService.createTopic("Maxime", "Sport - Inscription");
 		Message message11 = dbService.createMessage("Maxime", "Je vous propose de vous inscrire au même club de sport pour se motiver mutuellement ! De plus je vous rappel que l'on a une subvention du CE ! ");
-		Message message12 = dbService.createMessage("Julien", "Super ! Je pense m'y inscrier également alors");
-		Commentaire commentaire111 = dbService.createCommentaire("Thomas", "Tu y va quand ? je le faire ne même temps que toi.");
+		Message message12 = dbService.createMessage("Julien", "Super ! Je pense m'y inscrire également");
+		Commentaire commentaire111 = dbService.createCommentaire("Thomas", "Tu y va quand ? je le faire en même temps que toi.");
 		message12.addCommentaire(commentaire111);
 		topic1.addMessage(message11);
 		topic1.addMessage(message12);
@@ -138,7 +138,7 @@ public class MainController {
 		Message message21 = dbService.createMessage("Thomas", "J'arrête pas de crash sur D2, je comprends pas, pourriez vous m'aider?");
 		Message message22 = dbService.createMessage("Maxime", "Je pense que c'est pq ton PC est OverClocké");
 		Commentaire commentaire211 = dbService.createCommentaire("Julien", "Le mieux est l'ennemi du bien!");
-		message21.addCommentaire(commentaire211);
+		message22.addCommentaire(commentaire211);
 		topic2.addMessage(message21);
 		topic2.addMessage(message22);
 		

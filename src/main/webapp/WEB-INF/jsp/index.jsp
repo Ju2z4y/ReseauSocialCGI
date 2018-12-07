@@ -27,11 +27,5 @@
 	  <h1>Accueil de mon reseau social</h1> 
 	  <p>Home page</p> 
 	</div>
-	<div>
-	<c:forEach items="${sessionScope}" var="attr">
-    ${attr.key}=${attr.value}<br>
-</c:forEach>
-	
-	</div>
 </body>
 </html>
